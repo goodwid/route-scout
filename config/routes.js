@@ -1,7 +1,7 @@
 const db = require ('../lib/db.js');
-var router = require('../lib/router')();
+const router = require('../lib/router');
 
-module.exports = router
+router
   .get('/test', (req, res) => {
     let id = req.url.replace('/test/','');
     db.read(id)
@@ -12,7 +12,7 @@ module.exports = router
       });
   })
   .post('/test', (req, res) => {
-    let body='';
+    let body = '';
     req.on('data', (chunk) => body += chunk);
     req.on('end', () => {
       db.create(JSON.parse(body))
@@ -23,3 +23,5 @@ module.exports = router
         });
     });
   });
+
+module.exports = router;
