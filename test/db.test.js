@@ -65,7 +65,7 @@ describe('books module',() => {
 
   });
 
-  describe.skip('on delete', () =>{
+  describe('on delete', () =>{
 
     it('returns a delete message', (done) =>{
       db.delete('1')
