@@ -1,36 +1,36 @@
-const router = require('../lib/router');
-const assert = require('chai').assert;
+const router = require('../lib/router')();
+const chai = require('chai');
+const assert = chai.assert;
+const chaihttp = require('chai-http');
+const http = require('http');
+chai.use(chaihttp);
 
-const res = {
-  url: 'http://test/test',
-  text: 'This is a test.',
-  header: {'Content-Type': 'text/plain'},
-  write(s) {
-    this.output = s;
-  },
-  writeHead(s) {
-    this.head = s;
-  },
-  end() return;
+const server = http.createServer(router.routes());
+const request = chai.request(server);
 
+const testData = {
+  foo: 'bar'
 };
 
-const req = {
-  url: 'http://test/test',
-  text: 'This is a test.',
-  method: ''
-};
+router
+  .get('/test', (req, res) => {
+    let id = req.url.replace('/test/','');
+    res.writeHead(200, {'Content-Type':'application/json'});
+    res.write(JSON.stringify(1))
+    res.end();
+  });
 
-router.get('/test', (req, res) => {
-  let id = req.url.replace('/test/','');
-
-})
 
 
 describe('router',() => {
-
   it('returns 404 on a bad request.', () => {
-
+    request
+        .get('/test')
+        .end((err,res) => {
+          assert.equal(res.statusCode, 404);
+          assert.ok(res.text);
+          done();
+        });
 
 
   });
