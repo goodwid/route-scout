@@ -22,10 +22,19 @@ describe('server',() => {
   });
 
   it('should return 200', function(done) {
-    http.get('http://' + process.argv[2], function (res) {
-      assert.equal(200, res.statusCode);
+    http.get('http://' + process.argv[2], function (response) {
+      assert.equal(200, response.statusCode);
       done();
     });
+  });
+
+  it('when path is not recognized it routes to 404 page', (done) => {
+    chai.request(app)
+      .get('/some/path')
+      .end((err,response) => {
+        assert.equal(404, response.statusCode);
+        done();
+      });
   });
 
   // cleanly close the server
