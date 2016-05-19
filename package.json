@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/goodwid/routing-framework/issues"
   },
-  "homepage": "https://github.com/goodwid/routing-framework#readme"
+  "homepage": "https://github.com/goodwid/routing-framework#readme",
+  "dependencies": {
+    "sander": "^0.5.1"
+  }
 }
