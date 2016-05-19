@@ -52,7 +52,7 @@ describe('POST',() => {
       request
         .post('/test')
         .end((err,res) => {
-          assert.equal(res.statusCode, 400);
+          assert.equal(res.statusCode, 404);
           assert.propertyVal(res.header,'content-type','text/plain');
           assert.ok(res.text);
           done();
