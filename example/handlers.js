@@ -4,6 +4,7 @@ const handlers = {};
 
 handlers.getTestHandler = (req, res) => {
   let id = req.url.replace('/test/','');
+  console.log(req.params);
   db.read(id)
     .then(data => {
       res.writeHead(200, {'Content-Type': 'application/json'});
