@@ -4,7 +4,7 @@ const router = require('../lib/router');
 // test
 const db = require ('../lib/db.js');
 
-module.exports = router
+router
   .get('/test', (req, res) => {
     let id = req.url.replace('/test/','');
     db.read(id)
