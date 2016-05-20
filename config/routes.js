@@ -1,5 +1,8 @@
-const db = require ('../lib/db.js');
+// Required
 const router = require('../lib/router');
+
+// test
+const db = require ('../lib/db.js');
 
 module.exports = router
   .get('/test', (req, res) => {
@@ -29,7 +32,7 @@ module.exports = router
     res.write(JSON.stringify(data));
     res.end();
   })
-  .put('/test/', (req, res) => {
+  .put('/test', (req, res) => {
     let id = req.url.replace('/test/','');
     let body='';
     req.on('data', (chunk) => body += chunk);
@@ -42,7 +45,7 @@ module.exports = router
         });
     });
   })
-  .delete('/test/', (req, res) => {
+  .delete('/test', (req, res) => {
     let id = req.url.replace('/test/','');
     db.delete(id)
         .then(data => {
