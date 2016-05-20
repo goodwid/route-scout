@@ -18,15 +18,25 @@ var coolName = require(./coolName);
 ## Framework Methods
 
 - ##### coolName.get( path, callback )
-Does something that gets things. Totally.
+Creates a route for incoming GET requests at the passed in URL, the callback takes two arguments: request and response.
+
+  *GET requests retrieve data form the server. GET reads.*
 - ##### coolName.post( path, callback )
-Does something that gets things. Totally
+Creates a route for incoming POST requests at the passed in URL, the callback takes two arguments: request and response.
+
+  *POST requests are used to send data to the server. POST creates.*
 - ##### coolName.patch( path, callback )
-Does something that gets things. Totally
+Creates a route for incoming PATCH requests at the passed in URL, the callback takes two arguments: request and response.
+
+    *PATCH requests change data on the server. PATCH updates/modifies*
 - ##### coolName.put( path, callback )
-Does something that gets things. Totally
+Creates a route for incoming PUT requests at the passed in URL, the callback takes two arguments: request and response.
+
+    *PUT requests change or replace data on the server. PUT updates/replaces*
 - ##### coolName.delete( path, callback )
-Does something that gets things. Totally
+Creates a route for incoming DELETE requests at the passed in URL, the callback takes two arguments: request and response.
+
+    *DELETE requests delete data from the server.*
 
 ## Example
 ```javascript
