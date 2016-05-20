@@ -1,10 +1,16 @@
 # Our Super-Cool Framework with the kick-ass Name
+A framework that satisfies all your routing needs and makes your server-creating life much easier. May also make you look younger and more attractive. Results may vary.
 
 ## Features
 
-- easy usability
-- great looks
-- everything is so much more simple if you use this
+- easy to use
+- lightweight
+- simplifies using all common routing requests
+- lets you create your own routing requests
+
+## Is it any good?
+
+Yes.
 
 ## Installation
 ```
@@ -44,31 +50,31 @@ var coolName = require( 'coolName' );
 
 // GET Request
 coolName.get( '/examplePath', (req, res) => {
-  res.write ( 'This is an example.' );
+  res.write ( 'GET request to the homepage.' );
   res.end();
 })
 
 // POST Request
 coolName.post( '/examplePath', (req, res) => {
-  res.write ( 'This is an example' );
+  res.write ( 'POST request to the homepage.' );
   res.end();
 })
 
 // PATCH Request
 coolName.patch( '/examplePath', (req, res) => {
-  res.write ( 'This is an example.' );
+  res.write ( 'PATCH request to the homepage.' );
   res.end();
 })
 
 // PUT request
 coolName.put( '/examplePath', (req,res) => {
-  res.write ( 'This is an example');
+  res.write ( 'PUT request to the homepage.');
   res.end();
 });
 
 // DELETE Request
-coolName.get( '/examplePath', (req, res) => {
-  res.write ( 'This is an example' );
+coolName.delete( '/examplePath', (req, res) => {
+  res.write ( 'DELETE request to the homepage.' );
   res.end();
 })
 ```
