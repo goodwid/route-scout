@@ -1,5 +1,7 @@
 # Route Lout - The rowdy router
-A framework that satisfies all your routing needs and makes your server-creating life much easier. May also make you look younger and more attractive. Results may vary.
+
+# Route Scout - Finds the paths for you!
+A framework that satisfies all your routing needs and makes your server-creating life much easier. Also makes you look younger and more attractive. Results may vary.
 
 ## Features
 
