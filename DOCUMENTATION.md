@@ -1,12 +1,12 @@
-# Our Super-Cool Framework with the kick-ass Name
+# Route Lout - The rowdy router
 A framework that satisfies all your routing needs and makes your server-creating life much easier. May also make you look younger and more attractive. Results may vary.
 
 ## Features
 
 - easy to use
-- lightweight
 - simplifies using all common routing requests
 - lets you create your own routing requests
+- lightweight
 
 ## Is it any good?
 
