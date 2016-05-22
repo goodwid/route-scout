@@ -2,19 +2,19 @@ const assert = require('chai').assert;
 const router = require('../lib/router');
 
 describe('unit testing', () => {
-  const mockRequest = {
-    method: 'GET',
-    url: '/one',
-    called: true
-  };
 
 
   it('GET method handler called when requested', done => {
-    function testHandler (req, res) {
+    const mockRequest = {
+      method: 'GET',
+      url: '/one',
+      called: true
+    };
+    const testHandler = (req, res) => {
       assert.propertyVal(req, 'method', 'GET');
       assert.isTrue(req.called);
       res();
-    }
+    };
     router.get('/one', testHandler);
     const fn = router.routes();
     fn(mockRequest, done);
@@ -24,7 +24,7 @@ describe('unit testing', () => {
   it('GET method handler not called on bad endpoint', done => {
     const mockFailRequest = {
       method: 'POST',
-      url: '/failure'
+      url: '/fail'
     };
     const mockRes = {
       writeHead (s) {
@@ -33,14 +33,66 @@ describe('unit testing', () => {
       write (s) {
         this.write = s;
       },
+      // error handling calls res.end() at the conclusion.
       end: done
     };
-    function testHandler2 () {
-      assert(false);
-    }
-    router.post('/two', testHandler2);
-    const fn2 = router.routes();
-    fn2(mockFailRequest, mockRes);
+    const testHandler = () => {
+      assert(false, 'this function should not be called.');
+    };
+    router.post('/two', testHandler);
+    const fn = router.routes();
+    fn(mockFailRequest, mockRes);
   });
+
+  it('using createRoute to make custom method', done => {
+    const mockRequest = {
+      method: 'DWORKIN',
+      url: '/three',
+      called: true
+    };
+    const testHandler = (req, res) => {
+      assert.propertyVal(req, 'method', 'DWORKIN');
+      assert.isTrue(req.called);
+      res();
+    };
+    router.createRoute({
+      method: 'DWORKIN',
+      url: '/three',
+      handler: testHandler
+    });
+    const fn = router.routes();
+    fn(mockRequest, done);
+  });
+
+  it('params object created on :id endpoint', done => {
+    const mockRequest = {
+      method: 'GET',
+      url: '/four/1',
+      called: true
+    };
+    const mockRes = {
+      writeHead (s) {
+        console.log(s);
+      },
+      write (s) {
+        this.write = s;
+      },
+      // error handling calls res.end() at the conclusion.
+      end: done
+    };
+    const testHandler = (req, res) => {
+      console.log(req);
+      assert.propertyVal(req, 'method', 'GET');
+      assert.property(req, 'params');      assert.isTrue(req.called);
+      res();
+    };
+    router.get('/four/:id', testHandler);
+    const fn = router.routes();
+    assert.equal (fn(mockRequest, mockRes), 0);
+  });
+
+
+
+
 
 });
