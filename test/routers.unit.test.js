@@ -83,7 +83,8 @@ describe('unit testing', () => {
     const testHandler = (req, res) => {
       console.log(req);
       assert.propertyVal(req, 'method', 'GET');
-      assert.property(req, 'params');      assert.isTrue(req.called);
+      assert.property(req, 'params');
+      assert.isTrue(req.called);
       res();
     };
     router.get('/four/:id', testHandler);
