@@ -1,7 +1,7 @@
 {
   "name": "route-scout",
   "version": "1.0.0",
-  "description": "",
+  "description": "A framework that handles the routing for you and makes your server-creating life much easier. Also makes you look younger and more attractive. Results may vary.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "gulp test",
@@ -23,7 +23,7 @@
   },
   "author": "David Goodwin <goodwid@gmail.com> (https://github.com/goodwid)",
   "contributors": [
-    "Yvonne Schwing (https://github.com/YvonneHayes)",
+    "Yvonne Hayes (https://github.com/YvonneHayes)",
     "Johnny Luangphasy (https://github.com/jluangphasy)"
   ],
   "license": "MIT",
