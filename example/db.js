@@ -4,8 +4,9 @@ const things = Object.create(null);
 const dir = 'data';
 const path = dir + '/';
 
-sander.writeFile(path+'foo.txt','text');
-sander.unlink(path+'foo.txt');
+const testFile = path+'foo.txt';
+sander.writeFile(testFile,'text')
+  .then(() => sander.unlink(testFile));
 
 things.create = function(obj){
 
