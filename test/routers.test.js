@@ -29,7 +29,9 @@ describe ('routing on server',() => {
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(testPostData))
       .end((err,res) => {
-        var result = JSON.parse(res.text);
+        var result;
+        try { result = JSON.parse(res.text);}
+        catch (err) {done(err);}
         assert.equal(res.statusCode, 200);
         assert.propertyVal(res.header,'content-type','application/json');
         assert.isObject(result);
