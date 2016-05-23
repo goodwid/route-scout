@@ -81,8 +81,7 @@ function generateId(){
       const ids = fileNames.map(file => file.replace(/\.[^/.]+$/, ''));
       if (!ids.length) return 1;
       return Math.max.apply(0, ids) + 1;
-    })
-
+    });
 }
 
 module.exports = things;
