@@ -22,6 +22,11 @@ handlers.postTestHandler = (req, res) => {
         res.writeHead(200, {'Content-Type': 'application/json'});
         res.write(JSON.stringify(data));
         res.end();
+      })
+      .catch( err => {
+        res.writeHead(500);
+        res.write(err);
+        res.end();
       });
   });
 };
