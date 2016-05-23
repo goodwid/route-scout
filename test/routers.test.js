@@ -6,12 +6,12 @@ const server = require('../lib/server');
 
 chai.use(chaihttp);
 
-const request = chai.request(server);
 
 const testPostData =  {
   'thing':'item'
 };
 
+const request = chai.request(server);
 describe ('routing on server',() => {
   it('returns 404 on a bad request.', done => {
     request
@@ -48,7 +48,5 @@ describe ('routing on server',() => {
         done();
       });
   });
-  after(done => {
-    server.close(done);
-  });
+
 });
