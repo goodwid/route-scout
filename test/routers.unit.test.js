@@ -80,7 +80,7 @@ describe('unit testing', () => {
       // error handling calls res.end() at the conclusion.
       end: ()=>{}
     };
-    const testHandler = (req, res) => {
+    const testHandler = (req) => {
       assert.propertyVal(req, 'method', 'GET');
       assert.property(req, 'params');
       assert.isTrue(req.called);
