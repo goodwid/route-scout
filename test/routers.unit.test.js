@@ -64,7 +64,7 @@ describe('unit testing', () => {
     fn(mockRequest, done);
   });
 
-  it('params object created on :id endpoint', done => {
+  it('params object created on :id endpoint', ()=> {
     const mockRequest = {
       method: 'GET',
       url: '/four/1',
@@ -78,14 +78,12 @@ describe('unit testing', () => {
         this.write = s;
       },
       // error handling calls res.end() at the conclusion.
-      end: done
+      end: ()=>{}
     };
     const testHandler = (req, res) => {
-      console.log(req);
       assert.propertyVal(req, 'method', 'GET');
       assert.property(req, 'params');
       assert.isTrue(req.called);
-      res();
     };
     router.get('/four/:id', testHandler);
     const fn = router.routes();
