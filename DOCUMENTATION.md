@@ -1,4 +1,3 @@
-# Route Lout - The rowdy router
 
 # Route Scout - Finds the paths for you!
 A framework that handles the routing for you and makes your server-creating life much easier. Also makes you look younger and more attractive. Results may vary.
@@ -8,6 +7,8 @@ A framework that handles the routing for you and makes your server-creating life
 - easy to use
 - simplifies using all common routing requests
 - lets you create your own routing requests
+- built in handler for static files
+- lets add variables to your routes
 - lightweight
 
 ## Is it any good?
@@ -16,70 +17,110 @@ Yes.
 
 ## Installation
 ```
-$ npm install coolName
+$ npm install route-scout
 ```
 
 ## API
 ```javascript
-var coolName = require(./coolName);
+var routescout = require('route-scout');
 ```
 ## Framework Methods
 
-- #### coolName.get( path, callback )
+- #### routescout.get( path, callback )
 Creates a route for incoming GET requests at the passed in URL, the callback takes two arguments: request and response.
 
   *GET requests retrieve data form the server. GET reads.*
-- #### coolName.post( path, callback )
+- #### routescout.post( path, callback )
 Creates a route for incoming POST requests at the passed in URL, the callback takes two arguments: request and response.
 
   *POST requests are used to send data to the server. POST creates.*
-- #### coolName.patch( path, callback )
+- #### routescout.patch( path, callback )
 Creates a route for incoming PATCH requests at the passed in URL, the callback takes two arguments: request and response.
 
     *PATCH requests change data on the server. PATCH updates/modifies*
-- #### coolName.put( path, callback )
+- #### routescout.put( path, callback )
 Creates a route for incoming PUT requests at the passed in URL, the callback takes two arguments: request and response.
 
     *PUT requests change or replace data on the server. PUT updates/replaces*
-- #### coolName.delete( path, callback )
+- #### routescout.delete( path, callback )
 Creates a route for incoming DELETE requests at the passed in URL, the callback takes two arguments: request and response.
 
     *DELETE requests delete data from the server.*
 
-## Example
+- #### routescout.createRoute( object )
+Creates a route for whatever you want to create a route for at the passed in URL. The object requires three keys: URL, method  and handler. Method must be all uppercase!
+
+- #### routescout.static( path )
+Serves static objects from the folder located in path.
+
+
+
+## Examples
 ```javascript
-var coolName = require( 'coolName' );
+var routescout = require( 'routescout' );
 
 // GET Request
-coolName.get( '/examplePath', (req, res) => {
+routescout.get( '/examplePath', (req, res) => {
   res.write ( 'GET request to the homepage.' );
   res.end();
-})
+});
 
 // POST Request
-coolName.post( '/examplePath', (req, res) => {
+routescout.post( '/examplePath', (req, res) => {
   res.write ( 'POST request to the homepage.' );
   res.end();
-})
+});
 
 // PATCH Request
-coolName.patch( '/examplePath', (req, res) => {
+routescout.patch( '/examplePath', (req, res) => {
   res.write ( 'PATCH request to the homepage.' );
   res.end();
-})
+});
 
 // PUT request
-coolName.put( '/examplePath', (req,res) => {
+routescout.put( '/examplePath', (req,res) => {
   res.write ( 'PUT request to the homepage.');
   res.end();
 });
 
 // DELETE Request
-coolName.delete( '/examplePath', (req, res) => {
+routescout.delete( '/examplePath', (req, res) => {
   res.write ( 'DELETE request to the homepage.' );
   res.end();
-})
+});
+
+// CREATE ROUTE Request
+routescout.createRoute( {
+  url: '/example/path',
+  method: 'HEAD',
+  handler: (req, res) => {
+    res.write ( 'HEAD request to the homepage.' );
+    res.end();
+  })
+});
+
+// Static handler
+routescout.static( '/public');
+
+
+
 ```
+
+## Options
+
+#### URL Variables and Request Parameters
+For URL you can add a variable with a : and this will pass it to the request object with a property of params.
+
+``` javascript
+// Parameters in the Request object
+routescout.get( '/examplePath/:variable', (req, res) => {
+  res.write ( 'Access variable' + req.params.variable );
+  res.end();
+});
+```
+
+
+
 
 ## Dependencies
 
