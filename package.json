@@ -21,7 +21,11 @@
     "type": "git",
     "url": "git+https://github.com/goodwid/routing-framework.git"
   },
-  "author": "David Goodwin <goodwid@gmail.com>",
+  "author": "David Goodwin <goodwid@gmail.com> (https://github.com/goodwid)",
+  "contributors": [
+    "Yvonne Schwing (https://github.com/YvonneHayes)",
+    "Johnny Luangphasy (https://github.com/jluangphasy)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/goodwid/routing-framework/issues"
