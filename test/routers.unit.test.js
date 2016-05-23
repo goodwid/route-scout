@@ -90,8 +90,4 @@ describe('unit testing', () => {
     assert.equal (fn(mockRequest, mockRes), 0);
   });
 
-
-
-
-
 });
