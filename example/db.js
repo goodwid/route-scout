@@ -4,6 +4,9 @@ const things = Object.create(null);
 const dir = 'data';
 const path = dir + '/';
 
+sander.writeFile(path+'foo.txt','text');
+sander.unlink(path+'foo.txt');
+
 things.create = function(obj){
 
   return generateId()
@@ -78,7 +81,8 @@ function generateId(){
       const ids = fileNames.map(file => file.replace(/\.[^/.]+$/, ''));
       if (!ids.length) return 1;
       return Math.max.apply(0, ids) + 1;
-    });
+    })
+
 }
 
 module.exports = things;
