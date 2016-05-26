@@ -21,11 +21,21 @@ Yes.
 ```
 $ npm install route-scout
 ```
+## Getting Started
+Route-Scout relies on the built in http node module as demonstrated below.
 
-## API
 ```javascript
-var routescout = require('route-scout');
+const routescout = require('route-scout');
+const server = require('http');
+
+routescout.get('/', (req, res) => {
+  res.write( 'Hello World!' );
+  res.end();
+});
+
+server.createServer(routescout.routes()).listen(9000);
 ```
+
 ## Framework Methods
 
 - #### routescout.get( path, callback )
