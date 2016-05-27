@@ -49,15 +49,15 @@ Creates a route for incoming POST requests at the passed in URL, the callback ta
 - #### routescout.patch( path, callback )
 Creates a route for incoming PATCH requests at the passed in URL, the callback takes two arguments: request and response.
 
-    *PATCH requests change data on the server. PATCH updates/modifies*
+  *PATCH requests change data on the server. PATCH updates/modifies*
 - #### routescout.put( path, callback )
 Creates a route for incoming PUT requests at the passed in URL, the callback takes two arguments: request and response.
 
-    *PUT requests change or replace data on the server. PUT updates/replaces*
+  *PUT requests change or replace data on the server. PUT updates/replaces*
 - #### routescout.delete( path, callback )
 Creates a route for incoming DELETE requests at the passed in URL, the callback takes two arguments: request and response.
 
-    *DELETE requests delete data from the server.*
+  *DELETE requests delete data from the server.*
 
 - #### routescout.createRoute( object )
 Creates a route for whatever you want to create a route for at the passed in URL. The object requires three keys: URL, method  and handler. Method must be all uppercase!

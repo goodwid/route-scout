@@ -1,6 +1,6 @@
 {
   "name": "route-scout",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A framework that handles the routing for you and makes your server-creating life much easier. Also makes you look younger and more attractive. Results may vary.",
   "main": "lib/router.js",
   "scripts": {
